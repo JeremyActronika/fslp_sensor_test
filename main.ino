@@ -1,6 +1,5 @@
 #include <Arduino.h>
-
-#define LED 13
+#include "fslp.hpp"
 
 void setup()
 {
@@ -8,15 +7,29 @@ void setup()
     Serial.begin(115200);
     Serial.print(F("VERSION : "));
     Serial.println(F(VERSION));
-
-    /// Init LED
-    pinMode(LED, OUTPUT);
 }
 
 void loop()
 {
-    digitalWrite(LED, HIGH);
-    delay(1000);
-    digitalWrite(LED, LOW);
-    delay(1000);
+  int pressure, position;
+
+  pressure = fslpGetPressure();
+
+  if (pressure == 0)
+  {
+    // There is no detectable pressure, so measuring
+    // the position does not make sense.
+    position = 0;
+  }
+  else
+  {
+    position = fslpGetPosition();  // Raw reading, from 0 to 1023.
+  }
+
+  char report[80];
+  sprintf(report, "pressure: %5d   position: %5d\n\r",
+    pressure, position);
+  Serial.print(report);
+
+  delay(100);
 }
