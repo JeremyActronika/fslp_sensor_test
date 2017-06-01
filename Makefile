@@ -17,7 +17,7 @@ ARDMK_DIR         = arduino-mk
 ### ARDUINO_DIR
 ### Path to the Arduino application and resources directory.
 ### or on Linux: (remove the one you don't want)
-ARDUINO_DIR       = /opt/arduino
+ARDUINO_DIR       = /opt/arduino/arduino-1.6.9
 
 ### USER_LIB_PATH
 ### Path to where the your project's libraries are stored.
@@ -59,7 +59,7 @@ CXXFLAGS         += -pedantic -Wall -Wextra
 
 ### MONITOR_PORT
 ### The port your board is connected to. Using an '*' tries all the ports and finds the right one.
-MONITOR_PORT      = /dev/ttyUSB0
+MONITOR_PORT      = /dev/ttyACM0
 
 ### CURRENT_DIR
 ### Do not touch - used for binaries path
