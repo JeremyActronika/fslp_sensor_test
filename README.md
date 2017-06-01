@@ -1,4 +1,4 @@
-# Arduino project template
+# FSLP test
 
 ## Install tools
 
@@ -15,6 +15,28 @@ $ # Install node tools
 $ npm install
 ```
 
-## main program
+## Link
 
-The main program is simply an arduino blink
+Using example from [https://github.com/pololu/fslp-led-strip-arduino-demo](https://github.com/pololu/fslp-led-strip-arduino-demo).
+
+Information about sensor : [https://www.pololu.com/product/2730](https://www.pololu.com/product/2730)
+
+## Example
+
+Main program just get value (pressure and position) and send it to user (using Serial).
+
+Library of fslp sensor is in `fslp.hpp` and `fslp.cpp`
+
+Pololu website show how to connect FSLP sensor : 
+
+![pictures/FSLP_pinout.jpg](pictures/FSLP_pinout.jpg)
+![pictures/fspl_schematic.jpg](pictures/fslp_schematic.jpg)
+
+Solder wire on fslp sensor like this :
+
+* Red wire : SL
+* Blue wire : Bot R0 = 4.7k
+* Green wire : D2
+* Yellow wire : D1
+
+![pictures/fslp_connection.jpg](pictures/fslp_connection.jpg)
